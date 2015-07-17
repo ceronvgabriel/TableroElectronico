@@ -1,17 +1,26 @@
 package com.example.javierviveros.tableroelectronico;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    private String[] velocids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        velocids = getResources().getStringArray(R.array.speedItems);
     }
 
 
@@ -35,5 +44,26 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void selectSpeed(View v) {
+        //DirectionDialog direcc = new DirectionDialog();
+             //   direcc.show(getSupportFragmentManager(), "SelectSpeed");
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle(R.string.selectSpeed);
+            builder.setSingleChoiceItems(velocids, 0, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    msgToast("Velocidad " + velocids[i] + " Seleccionada");
+                }
+            });
+        Dialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void msgToast(String s){
+        Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
     }
 }
