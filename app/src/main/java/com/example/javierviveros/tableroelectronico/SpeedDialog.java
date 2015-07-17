@@ -1,6 +1,12 @@
 package com.example.javierviveros.tableroelectronico;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 
 /*
@@ -12,22 +18,17 @@ import android.support.v4.app.DialogFragment;
  * create an instance of this fragment.
  */
 public class SpeedDialog extends DialogFragment {
-       /* private String[] velocids = getResources().getStringArray(R.array.speedItems);
-
-    public DirectionDialog() {    }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        return radioDirectionDialog();
 
-    }
+        final String[] velocids = getResources().getStringArray(R.array.speedItems);
 
-    public AlertDialog radioDirectionDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle(R.string.selectSpeed)
-                .setSingleChoiceItems(velocids, 0, new DialogInterface.OnClickListener() {
+                .setSingleChoiceItems(velocids, -1, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         msgToast("Velocidad "+ velocids[i] +" Seleccionada");
@@ -37,8 +38,9 @@ public class SpeedDialog extends DialogFragment {
         return builder.create();
     }
 
+
     private void msgToast(String s){
         Toast.makeText(getActivity().getApplicationContext(), s, Toast.LENGTH_LONG).show();
     }
-*/
+
 }

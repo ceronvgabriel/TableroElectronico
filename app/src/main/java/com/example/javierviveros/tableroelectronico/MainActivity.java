@@ -1,10 +1,8 @@
 package com.example.javierviveros.tableroelectronico;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,21 +44,25 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void digiText(View v) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        TextDialog speed = new TextDialog();
+                speed.show(fragmentManager, "DigiText");
+    }
+
+    public void selectDirecc(View v) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        DirectionDialog speed = new DirectionDialog();
+        speed.show(fragmentManager, "SelectDirecc");
+    }
+
     public void selectSpeed(View v) {
-        //DirectionDialog direcc = new DirectionDialog();
-             //   direcc.show(getSupportFragmentManager(), "SelectSpeed");
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.setTitle(R.string.selectSpeed);
-            builder.setSingleChoiceItems(velocids, 0, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    msgToast("Velocidad " + velocids[i] + " Seleccionada");
-                }
-            });
-        Dialog dialog = builder.create();
-        dialog.show();
+        SpeedDialog speed = new SpeedDialog();
+        speed.show(fragmentManager, "SelectSpeed");
     }
 
     private void msgToast(String s){
