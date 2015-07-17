@@ -1,6 +1,12 @@
 package com.example.javierviveros.tableroelectronico;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 
 /*
@@ -13,5 +19,30 @@ import android.support.v4.app.DialogFragment;
  */
 public class DirectionDialog extends DialogFragment {
 
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+        final String[] direc = getResources().getStringArray(R.array.directionItems);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setTitle(R.string.selectDirection)
+                .setSingleChoiceItems(direc, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        msgToast("Direccion "+ direc[i] +" Seleccionada");
+                        dialogInterface.cancel();
+                    }
+                });
+
+        return builder.create();
+    }
+
+
+    private void msgToast(String s){
+        Toast.makeText(getActivity().getApplicationContext(), s, Toast.LENGTH_LONG).show();
+    }
 
 }
+
