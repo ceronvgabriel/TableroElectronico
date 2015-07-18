@@ -17,6 +17,14 @@
     <string name="msgHint">Mensaje</string>
     <string name="ok">Aceptar</string>
 
+    <string name="usuario">Usuario: </string>
+    <string name="usuarioHint">Ingresar Usuario</string>
+
+    <string name="contrasena">Contraseña: </string>
+    <string name="contrasenaHint">Ingresar Contraseña</string>
+
+    <string name="bAceptar">Aceptar</string>
+
     <string-array name="speedItems">
         <item>Muy Baja</item>
         <item>Baja</item>
@@ -28,6 +36,13 @@
         <item>Izquierda</item>
         <item>Derecha</item>
     </string-array>
+
+    <string-array name="directItems">
+        <item>Izquierda</item>
+        <item>Derecha</item>
+
+    </string-array>
+    <string name="title_activity_login">Login</string>
 
 
 </resources>

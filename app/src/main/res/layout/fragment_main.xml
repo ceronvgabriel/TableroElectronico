@@ -21,11 +21,11 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text="@string/buttonEdit"
-        android:textColor="#FFFF"
+        android:textColor="@color/black"
         android:layout_gravity="right"
         android:id="@+id/bBoton"
         android:layout_weight="0.3"
-        android:background="@color/blue"
+        android:background="@drawable/buttonbackground"
         android:onClick="digiText"/>
 
     <LinearLayout
@@ -99,10 +99,10 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text="@string/buttonSent"
-        android:textColor="#FFFF"
+        android:textColor="@color/black"
         android:layout_gravity="right"
         android:id="@+id/bSend"
         android:layout_weight="0.3"
-        android:background="@color/blue"/>
+        android:background="@drawable/buttonbackground"/>
 
 </LinearLayout>
