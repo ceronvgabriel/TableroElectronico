@@ -10,14 +10,23 @@
     <string name="estado">Estado</string>
     <string name="buttonSent">Enviar</string>
 
-
+    <string name="newMsg">Nuevo Mensaje</string>
     <string name="selectSpeed">Velocidad del Mensaje</string>
+    <string name="selectDirection">Direccion del Mensaje</string>
+
+    <string name="msgHint">Mensaje</string>
+    <string name="ok">Aceptar</string>
 
     <string-array name="speedItems">
         <item>Muy Baja</item>
         <item>Baja</item>
         <item>Media</item>
         <item>Alta</item>
+    </string-array>
+
+    <string-array name="directionItems">
+        <item>Izquierda</item>
+        <item>Derecha</item>
     </string-array>
 
 

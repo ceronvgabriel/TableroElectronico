@@ -32,6 +32,7 @@ public class SpeedDialog extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         msgToast("Velocidad "+ velocids[i] +" Seleccionada");
+                        dialogInterface.cancel();
                     }
                 });
 
