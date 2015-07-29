@@ -15,7 +15,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +34,9 @@ public class MainActivity extends ActionBarActivity {
     public static TextView stateBT;        //Muestra el estado de la coneccion bluetooth
 
 
-    public volatile boolean stopWorker;
+    //public volatile boolean stopWorker;
     public static boolean connected = false;
-    public static Button bascular;
+    //public static Button bascular;
 
     private enlazarbt fragEnlazar = new enlazarbt();
 
@@ -96,14 +95,15 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(item.getItemId()){
+            case R.id.action_settings:
+                return true;
+            case R.id.act_help:
+                HelpMenuItem();
+                break;
+            case R.id.act_abuot:
+                AboutMenuItem();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -121,10 +121,13 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void funConect(View v) {
-
         stateBT = (TextView) findViewById(R.id.tEstado);
-        EnlazarMenuItem();
 
+        if (connected) {
+            desconectarBluetooth();
+            stateBT.setText("Desconectado");
+        }else
+            EnlazarMenuItem();
     }
 
     public void selectDirecc(View v) {
@@ -144,8 +147,21 @@ public class MainActivity extends ActionBarActivity {
     public void sendMSG(View v) {
         mensaj = msg_show.getText().toString();
 
+        String S = "*|" +mensaj +"|" +veloc +"|" +direcc +"|#";
+
 //        if (connected){
-            msg("Enviando: *|" +mensaj +"|" +veloc +"|" +direcc +"|#");
+        try {
+            if (connected){
+                MainActivity.getsocket().getOutputStream().write(S.getBytes());
+                msg("Enviando...");
+            } else{
+                //MainActivity.getsocket().getOutputStream().write("*|1|13|0|#".getBytes());
+                msg("Debe conectarse primero para poder enviar");
+            }
+        } catch (IOException e){
+            msg("Error al enviar");
+        }
+
 /*        }
         else msg("Debe conectarse primero para poder enviar");*/
     }
@@ -155,6 +171,7 @@ public class MainActivity extends ActionBarActivity {
         {
             try{
                 clientSocket.close(); //close connection
+                connected = false;
             }catch (IOException e){
                 msg("Error");
             }
