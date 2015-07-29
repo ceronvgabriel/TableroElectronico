@@ -3,11 +3,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text">Mensaje</string>
     <string name="buttonEdit">Editar</string>
-    <string name="estado">Estado</string>
+    <string name="estado">Desconectado</string>
     <string name="buttonSent">Enviar</string>
 
     <string name="newMsg">Nuevo Mensaje</string>
@@ -16,6 +16,14 @@
 
     <string name="msgHint">Mensaje</string>
     <string name="ok">Aceptar</string>
+
+    <string name="usuario">Usuario: </string>
+    <string name="usuarioHint">Ingresar Usuario</string>
+
+    <string name="contrasena">Contraseña: </string>
+    <string name="contrasenaHint">Ingresar Contraseña</string>
+
+    <string name="bAceptar">Aceptar</string>
 
     <string-array name="speedItems">
         <item>Muy Baja</item>
@@ -28,6 +36,26 @@
         <item>Izquierda</item>
         <item>Derecha</item>
     </string-array>
+
+    <string name="title_activity_login">Login</string>
+
+    <string name="sAbout">Acerca de</string>
+    <string name="sOk">Entendido</string>
+    <string name="sAboutInfo">Programado por:\nGabriel Cerón Viveros,\nAndres Felipe Martinez\n@hotmail.com\nsbandres06@hotmail.com\nEstudiantes de Ingeniería Electrónica\nUniversidad de Antioquia</string>
+    <string name="sTitulo">Conecte su dispositivo Android con un Sistema Embebido Mediante Bluetooth</string>
+    <string name="sLED13">LED (pin 13)</string>
+    <string name="sButtonToggle">Bascular</string>
+    <string name="sEstadoOn">ON</string>
+    <string name="sEstadooff">OFF</string>
+    <string name="sEnlazar">Enlazar con un dispositivo</string>
+    <string name="sHelpInfo">Utilice esta App para enviar mensajes a un panel electronico mediante Bluetooth</string>
+    <string name="sHelp">Ayuda</string>
+    <string name="sCancelar">Cancelar</string>
+    <string name="sEnlazarPiccolo">Enlazar</string>
+    <string name="sDisponibles">Dispositivos disponibles</string>
+    <string name="errorSeleccion">No ha seleccionado ningún dispotivo</string>
+    <string name="sDisconnect">Desconectar</string>
+    <string name="sRecibo">Recibido:</string>
 
 
 </resources>

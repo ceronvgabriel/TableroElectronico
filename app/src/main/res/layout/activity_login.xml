@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.javierviveros.tableroelectronico.Login"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/blacknblue"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/usuario"
+        android:textSize="28dp"
+        android:textColor="@color/lightblue"
+        android:id="@+id/tUsuario"
+        android:layout_marginTop="142dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eUsuario"
+        android:layout_below="@+id/tUsuario"
+        android:textColorHint="@color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="22dp"
+        android:hint="@string/usuarioHint"
+        android:textColor="@color/white"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/contrasena"
+        android:id="@+id/tContraseña"
+        android:layout_below="@+id/eUsuario"
+        android:textColor="@color/lightblue"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/eContraseña"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_below="@+id/tContraseña"
+        android:textSize="22dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:hint="@string/contrasenaHint" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bAceptar"
+        android:textSize="18dp"
+        android:background="@drawable/buttonbackground"
+        android:id="@+id/bAceptar"
+        android:textColor="@color/black"
+        android:layout_below="@+id/eContraseña"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+
+</LinearLayout>

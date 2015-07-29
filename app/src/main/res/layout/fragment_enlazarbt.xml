@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.javierviveros.tableroelectronico.enlazarbt"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <TextView
+        android:text="@string/sDisponibles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        android:textSize="40dp"
+        />
+
+    <ListView
+        android:padding="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@android:id/list">
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <Button
+            android:id="@+id/botonEnlazar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sEnlazarPiccolo"
+            android:textSize="30dp"
+            android:background="@drawable/buttonbackground"/>
+        <Button
+            android:id="@+id/botonCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sCancelar"
+            android:textSize="30dp"
+            android:background="@drawable/buttonbackground"/>
+    </LinearLayout>
+
+</LinearLayout>
