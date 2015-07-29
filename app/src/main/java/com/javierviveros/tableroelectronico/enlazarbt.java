@@ -1,4 +1,4 @@
-package com.example.javierviveros.tableroelectronico;
+package com.javierviveros.tableroelectronico;
 
 
 import android.app.Activity;
@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.javierviveros.tableroelectronico.R;
 
 import java.util.UUID;
 
@@ -70,7 +72,7 @@ public class enlazarbt extends ListFragment {
     }
 
     private void funcionCancelar() {
-        getActivity().getFragmentManager().beginTransaction().replace(android.R.id.content,new MainActivityFragment()).commit();
+        getActivity().getFragmentManager().beginTransaction().replace(android.R.id.content, new Msg()).commit();
     }
 
     private void funcionEnlazar() {
@@ -81,11 +83,13 @@ public class enlazarbt extends ListFragment {
             default:
                 if(connectRemoteDevice(MainActivity.getBTdevice(itemSelected))){
                     MainActivity.connected = true;
+                    MainActivity.stateBT.setText("Conectado");
                     Toast.makeText(getActivity(), "Conectado a " + MainActivity.getBT_devices().get(itemSelected), Toast.LENGTH_SHORT).show();
-                    getActivity().getFragmentManager().beginTransaction().replace(android.R.id.content, new MainActivityFragment()).commit();
+                    getActivity().getFragmentManager().beginTransaction().replace(android.R.id.content, new Msg()).commit();
                 }else{
                     MainActivity.connected = false;
-                    Toast.makeText(getActivity(), "Error de conexi�n", Toast.LENGTH_SHORT).show();
+                    MainActivity.stateBT.setText("Desconectado");
+                    Toast.makeText(getActivity(), "Error de conexión", Toast.LENGTH_SHORT).show();
                 }
                 //MainActivity.bascular.setEnabled(MainActivity.connected); // Para habilitar el
                 itemSelected = -1;

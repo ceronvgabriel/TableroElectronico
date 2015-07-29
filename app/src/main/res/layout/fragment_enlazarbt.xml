@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.javierviveros.tableroelectronico.enlazarbt"
-    android:orientation="vertical">
+    tools:context="com.javierviveros.tableroelectronico.enlazarbt"
+    android:orientation="vertical"
+    android:background="@color/black">
 
     <TextView
         android:text="@string/sDisponibles"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/primary_dark_material_dark"
+        android:textColor="@color/white"
         android:textStyle="italic"
         android:textSize="40dp"
         />
@@ -33,13 +34,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sEnlazarPiccolo"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:background="@drawable/buttonbackground"/>
         <Button
             android:id="@+id/botonCancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sCancelar"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:background="@drawable/buttonbackground"/>
     </LinearLayout>
 
 </LinearLayout>

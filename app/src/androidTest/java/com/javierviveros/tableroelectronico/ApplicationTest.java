@@ -1,4 +1,4 @@
-package com.example.javierviveros.tableroelectronico;
+package com.javierviveros.tableroelectronico;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

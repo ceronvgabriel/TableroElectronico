@@ -1,4 +1,4 @@
-package com.example.javierviveros.tableroelectronico;
+package com.javierviveros.tableroelectronico;
 
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -16,13 +16,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.javierviveros.tableroelectronico.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    public static String mensaj;            //captura el mensaje
+    public static int direcc = 0;          //contiene el sentido 0: izquierda (Default), 1: Derecha
+    public static int veloc = 2;           //0: Muy baja, 1: Baja, 2: Media (Default), 3: Alta
+
+    public static TextView msg_show;        //Muestra el mensaje escrito por el usuario
+    public static TextView stateBT;        //Muestra el estado de la coneccion bluetooth
+
 
     public volatile boolean stopWorker;
     public static boolean connected = false;
@@ -47,6 +58,7 @@ public class MainActivity extends ActionBarActivity {
     public static void setsocket(BluetoothSocket ext){
         clientSocket = ext;
     }
+
     private BroadcastReceiver discoveryMonitor = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -61,14 +73,12 @@ public class MainActivity extends ActionBarActivity {
         }
     };
 
-    private String[] velocids;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_main);
 
-        velocids = getResources().getStringArray(R.array.speedItems);
+        setContentView(R.layout.activity_main);     //Importante esta linea para correcta transicion entre fragments
+        getFragmentManager().beginTransaction().replace(android.R.id.content,new Msg()).commit();
     }
 
     @Override
@@ -76,7 +86,6 @@ public class MainActivity extends ActionBarActivity {
         super.onResume();
         registerReceiver(discoveryMonitor, new IntentFilter(BluetoothDevice.ACTION_FOUND));
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,13 +110,19 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void digiText(View v) {
+
+        msg_show = (TextView) findViewById(R.id.tMensaje);
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        TextDialog speed = new TextDialog();
-        speed.show(fragmentManager, "DigiText");
+        TextDialog text = new TextDialog();
+        text.show(fragmentManager, "DigiText");
+
+
     }
 
     public void funConect(View v) {
+
+        stateBT = (TextView) findViewById(R.id.tEstado);
         EnlazarMenuItem();
 
     }
@@ -126,8 +141,13 @@ public class MainActivity extends ActionBarActivity {
         speed.show(fragmentManager, "SelectSpeed");
     }
 
-    private void msgToast(String s){
-        Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
+    public void sendMSG(View v) {
+        mensaj = msg_show.getText().toString();
+
+//        if (connected){
+            msg("Enviando: *|" +mensaj +"|" +veloc +"|" +direcc +"|#");
+/*        }
+        else msg("Debe conectarse primero para poder enviar");*/
     }
 
     private void desconectarBluetooth() {
@@ -153,7 +173,7 @@ public class MainActivity extends ActionBarActivity {
             }else {
                 desconectarBluetooth();
                 discoverBTDevices();
-                getFragmentManager().beginTransaction().replace(android.R.id.content, fragEnlazar).commit();
+                getFragmentManager().beginTransaction().replace(android.R.id.content,new enlazarbt()).commit();
             }
         }
     }

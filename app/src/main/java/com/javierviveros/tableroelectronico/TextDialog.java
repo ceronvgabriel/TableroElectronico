@@ -1,4 +1,4 @@
-package com.example.javierviveros.tableroelectronico;
+package com.javierviveros.tableroelectronico;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -8,7 +8,10 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.javierviveros.tableroelectronico.R;
 
 
 /*
@@ -33,12 +36,15 @@ public class TextDialog extends DialogFragment {
         builder.setView(v);
 
         Button positive_button = (Button) v.findViewById(R.id.ok_boton);
+        final EditText messengr = (EditText) v.findViewById(R.id.msg_input);
+
 
         positive_button.setOnClickListener(
             new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    msgToast("Presionó Aceptar");
+                    MainActivity.msg_show.setText(messengr.getText());
+                    msgToast("Mensaje Guardado");
                     dismiss();
                 }
             }

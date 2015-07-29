@@ -7,7 +7,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text">Mensaje</string>
     <string name="buttonEdit">Editar</string>
-    <string name="estado">Estado</string>
+    <string name="estado">Desconectado</string>
     <string name="buttonSent">Enviar</string>
 
     <string name="newMsg">Nuevo Mensaje</string>
