@@ -126,6 +126,7 @@ public class MainActivity extends ActionBarActivity {
         if (connected) {
             desconectarBluetooth();
             stateBT.setText("Desconectado");
+            Toast.makeText(this, "Desconectando", Toast.LENGTH_LONG).show();
         }else
             EnlazarMenuItem();
     }
@@ -190,7 +191,7 @@ public class MainActivity extends ActionBarActivity {
             }else {
                 desconectarBluetooth();
                 discoverBTDevices();
-                getFragmentManager().beginTransaction().replace(android.R.id.content,new enlazarbt()).commit();
+                getFragmentManager().beginTransaction().replace(android.R.id.content, fragEnlazar).commit();
             }
         }
     }
