@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context="com.javierviveros.tableroelectronico.Msg"
     android:orientation="vertical"
-    android:background="@color/black">
+    android:background="@drawable/blacknblue">
 
     <TextView
         android:layout_width="fill_parent"
@@ -82,7 +82,8 @@
                 android:background="#0000"
                 android:padding="20dp"
                 android:scaleType="fitCenter"
-                android:adjustViewBounds="true"/>
+                android:adjustViewBounds="true"
+                android:onClick="closeSesion"/>
         </LinearLayout>
     </LinearLayout>
 

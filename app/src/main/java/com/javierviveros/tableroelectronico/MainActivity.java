@@ -26,9 +26,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity {
 
-    public static String mensaj;            //captura el mensaje
-    public static int direcc = 0;          //contiene el sentido 0: izquierda (Default), 1: Derecha
+    public static String mensaj = "Mensaje";            //captura el mensaje
+    public static int direcc = 1;          //contiene el sentido 0: izquierda (Default), 1: Derecha
     public static int veloc = 2;           //0: Muy baja, 1: Baja, 2: Media (Default), 3: Alta
+
+    public static String msgStBt = "Estado";            //captura el mensaje
 
     public static TextView msg_show;        //Muestra el mensaje escrito por el usuario
     public static TextView stateBT;        //Muestra el estado de la coneccion bluetooth
@@ -77,12 +79,13 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);     //Importante esta linea para correcta transicion entre fragments
-        getFragmentManager().beginTransaction().replace(android.R.id.content,new Msg()).commit();
+        getFragmentManager().beginTransaction().replace(android.R.id.content, new Msg()).commit();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
         registerReceiver(discoveryMonitor, new IntentFilter(BluetoothDevice.ACTION_FOUND));
     }
 
@@ -96,8 +99,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-            case R.id.action_settings:
-                return true;
             case R.id.act_help:
                 HelpMenuItem();
                 break;
@@ -121,15 +122,21 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void funConect(View v) {
+        msg_show = (TextView) findViewById(R.id.tMensaje);
         stateBT = (TextView) findViewById(R.id.tEstado);
+        mensaj = msg_show.getText().toString();
+        msgStBt = stateBT.getText().toString();
 
         if (connected) {
             desconectarBluetooth();
             stateBT.setText("Desconectado");
             Toast.makeText(this, "Desconectando", Toast.LENGTH_LONG).show();
-        }else
+        }else {
             EnlazarMenuItem();
+        }
     }
+
+
 
     public void selectDirecc(View v) {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -150,7 +157,6 @@ public class MainActivity extends ActionBarActivity {
 
         String S = "*|" +mensaj +"|" +veloc +"|" +direcc +"|#";
 
-//        if (connected){
         try {
             if (connected){
                 MainActivity.getsocket().getOutputStream().write(S.getBytes());
@@ -162,9 +168,14 @@ public class MainActivity extends ActionBarActivity {
         } catch (IOException e){
             msg("Error al enviar");
         }
+    }
 
-/*        }
-        else msg("Debe conectarse primero para poder enviar");*/
+
+
+    public void closeSesion(View v){
+        Intent i = new Intent(this, Login.class);
+        startActivity(i);
+        finish();
     }
 
     private void desconectarBluetooth() {

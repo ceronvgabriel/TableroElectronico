@@ -7,9 +7,6 @@
     <item android:id="@+id/act_help" android:title="@string/sHelp"
         android:orderInCategory="1" app:showAsAction="never" />
 
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="99" app:showAsAction="never" />
-
     <item android:id="@+id/act_abuot" android:title="@string/sAbout"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>

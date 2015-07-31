@@ -30,9 +30,10 @@ public class Login extends ActionBarActivity {
                 if (usuario.equals("admin")){
                     if (contraseña.equals("admin")){
                     Intent i = new Intent(Login.this, MainActivity.class);
-                    startActivity(i);}
+                    startActivity(i);
+                        finish();}
                     else{
-                        Toast.makeText(getApplicationContext(), "Contraseña Incorrecto",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Contraseña Incorrecta",Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {

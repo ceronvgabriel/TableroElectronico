@@ -83,12 +83,12 @@ public class enlazarbt extends ListFragment {
             default:
                 if(connectRemoteDevice(MainActivity.getBTdevice(itemSelected))){
                     MainActivity.connected = true;
-                    MainActivity.stateBT.setText("Conectado");
+                    MainActivity.msgStBt = "Conectado";
                     Toast.makeText(getActivity(), "Conectado a " + MainActivity.getBT_devices().get(itemSelected), Toast.LENGTH_SHORT).show();
                     getActivity().getFragmentManager().beginTransaction().replace(android.R.id.content, new Msg()).commit();
                 }else{
                     MainActivity.connected = false;
-                    MainActivity.stateBT.setText("Desconectado");
+                    MainActivity.msgStBt = "Desconectado";
                     Toast.makeText(getActivity(), "Error de conexión", Toast.LENGTH_SHORT).show();
                 }
                 //MainActivity.bascular.setEnabled(MainActivity.connected); // Para habilitar el
